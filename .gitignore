@@ -1,0 +1,21 @@
+# Large release artifacts belong in GitHub Releases, not in Git history.
+/release/*.zip
+/release/*.img
+/release/*.img.gz
+
+# Proprietary Samsung firmware is kept only for local rebuilds.
+/firmware/
+
+# These are independent Git repositories with their own remotes.
+/sources/
+
+# Disposable build/download workspaces.
+/DELETING/
+/downloads/
+/work/installer-patched/
+/artifacts/vendor-extracted/
+/sources/a50-halium/out-*/
+
+.DS_Store
+*.log
+

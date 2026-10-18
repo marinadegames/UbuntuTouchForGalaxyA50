@@ -1,0 +1,13 @@
+[Unit]
+Description=Mount Samsung A50 vendor partition for hardware firmware
+After=local-fs.target
+Before=NetworkManager.service
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/mkdir -p /android/vendor
+ExecStart=/bin/mount -o ro /dev/block/sda26 /android/vendor
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

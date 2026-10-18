@@ -1,0 +1,11 @@
+[Unit]
+Description=Keep the headless server display off
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'for f in /sys/class/backlight/*/brightness; do [ -e "$f" ] && echo 0 > "$f" || true; done; [ -e /sys/class/graphics/fb0/blank ] && echo 4 > /sys/class/graphics/fb0/blank || true'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
